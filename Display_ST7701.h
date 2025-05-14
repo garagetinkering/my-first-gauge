@@ -15,13 +15,15 @@
 #include "driver/gpio.h"
 #include "freertos/task.h"
 
+#include "TCA9554PWR.h"
+
 #include "LVGL_Driver.h"
 #include "I2C_Driver.h"
 
 #define LCD_CLK_PIN           2
 #define LCD_MOSI_PIN          1  
-#define LCD_CS_PIN            ((gpio_num_t)42)
-#define LCD_RST_PIN           ((gpio_num_t)7)
+#define LCD_CS_PIN            ((gpio_num_t)42)  // see functions at the top of Display_ST7701.cpp for changeing
+#define LCD_RST_PIN           ((gpio_num_t)7)   // these values for a 2.1" Waveshare LCD board
 #define LCD_BACKLIGHT_PIN     6
 
 // Backlight   

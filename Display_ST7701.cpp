@@ -25,20 +25,34 @@ void ST7701_WriteData(uint8_t data) {
 
 void ST7701_CS_EN(){
   gpio_set_level(LCD_CS_PIN, 0);
+  // Comment out above and in below for Waveshare 2.1 "LCD 
+  // Set_EXIO(EXIO_PIN3,Low);
 
   vTaskDelay(pdMS_TO_TICKS(10));
 }
+
 void ST7701_CS_Dis(){
   gpio_set_level(LCD_CS_PIN, 1);
 
+  // Comment out above and in below for Waveshare 2.1 "LCD 
+  // Set_EXIO(EXIO_PIN3,High);
+
   vTaskDelay(pdMS_TO_TICKS(10));
 }
+
 void ST7701_Reset(){
   gpio_set_level(LCD_RST_PIN, 0);
   vTaskDelay(pdMS_TO_TICKS(10));
   gpio_set_level(LCD_RST_PIN, 1);
   vTaskDelay(pdMS_TO_TICKS(50));
+
+  // Comment out above and in below for Waveshare 2.1 "LCD 
+  // Set_EXIO(EXIO_PIN1, Low);
+  // vTaskDelay(pdMS_TO_TICKS(10));
+  // Set_EXIO(EXIO_PIN1, High);
+  // vTaskDelay(pdMS_TO_TICKS(50));
 }
+
 void ST7701_Init() {
   spi_bus_config_t buscfg = {
     .mosi_io_num = LCD_MOSI_PIN,
